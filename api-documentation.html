@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Server API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .endpoint {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .method {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .request,
+        .response {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Media Server API Documentation</h1>
+    <p>This API allows you to manage a collection of movies, TV series, and songs.</p>
+
+    <div class="endpoint">
+        <h2>Movies</h2>
+
+        <h3>Get All Movies</h3>
+        <p><span class="method">GET</span> <code>/movies</code></p>
+        <div class="response">
+            <p>Response:</p>
+            <pre>[
+    {
+        "id": 1,
+        "title": "The Batman",
+        "genre": "Action",
+        "director": "Matt Reeves",
+        "year": 2022,
+        "rating": 7.9
+    },
+    ...
+]</pre>
+        </div>
+
+        <h3>Add a Movie</h3>
+        <p><span class="method">POST</span> <code>/movies</code></p>
+        <div class="request">
+            <p>Request Body (required fields: title, director, year):</p>
+            <pre>{
+    "title": "New Movie",
+    "director": "Director Name",
+    "year": 2023,
+    "genre": "Action",
+    "rating": 8.5
+}</pre>
+        </div>
+
+        <h3>Update a Movie</h3>
+        <p><span class="method">PUT</span> <code>/movies</code></p>
+        <div class="request">
+            <p>Request Body (required field: id):</p>
+            <pre>{
+    "id": 1,
+    "title": "Updated Title",
+    "rating": 9.0
+}</pre>
+        </div>
+
+        <h3>Delete a Movie</h3>
+        <p><span class="method">DELETE</span> <code>/movies</code></p>
+        <div class="request">
+            <p>Request Body (required field: id):</p>
+            <pre>{
+    "id": 1
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h2>TV Series</h2>
+
+        <h3>Get All Series</h3>
+        <p><span class="method">GET</span> <code>/series</code></p>
+        <div class="response">
+            <p>Response:</p>
+            <pre>[
+    {
+        "id": 1,
+        "title": "The Last of Us",
+        "genre": "Drama",
+        "creator": "Craig Mazin",
+        "seasons": 1,
+        "year": 2023,
+        "rating": 8.9
+    },
+    ...
+]</pre>
+        </div>
+
+        <h3>Add a Series</h3>
+        <p><span class="method">POST</span> <code>/series</code></p>
+        <div class="request">
+            <p>Request Body (required fields: title, creator, seasons):</p>
+            <pre>{
+    "title": "New Series",
+    "creator": "Creator Name",
+    "seasons": 1,
+    "year": 2023,
+    "genre": "Drama",
+    "rating": 8.5
+}</pre>
+        </div>
+
+        <h3>Update a Series</h3>
+        <p><span class="method">PUT</span> <code>/series</code></p>
+        <div class="request">
+            <p>Request Body (required field: id):</p>
+            <pre>{
+    "id": 1,
+    "title": "Updated Series Title",
+    "seasons": 2
+}</pre>
+        </div>
+
+        <h3>Delete a Series</h3>
+        <p><span class="method">DELETE</span> <code>/series</code></p>
+        <div class="request">
+            <p>Request Body (required field: id):</p>
+            <pre>{
+    "id": 1
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <h2>Songs</h2>
+
+        <h3>Get All Songs</h3>
+        <p><span class="method">GET</span> <code>/songs</code></p>
+        <div class="response">
+            <p>Response:</p>
+            <pre>[
+    {
+        "id": 1,
+        "title": "Die For You",
+        "artist": "The Weeknd",
+        "genre": "R&B",
+        "year": 2022,
+        "duration": "4:20"
+    },
+    ...
+]</pre>
+        </div>
+
+        <h3>Add a Song</h3>
+        <p><span class="method">POST</span> <code>/songs</code></p>
+        <div class="request">
+            <p>Request Body (required fields: title, artist, year):</p>
+            <pre>{
+    "title": "New Song",
+    "artist": "Artist Name",
+    "year": 2023,
+    "genre": "Pop",
+    "duration": "3:30"
+}</pre>
+        </div>
+
+        <h3>Update a Song</h3>
+        <p><span class="method">PUT</span> <code>/songs</code></p>
+        <div class="request">
+            <p>Request Body (required field: id):</p>
+            <pre>{
+    "id": 1,
+    "title": "Updated Song Title",
+    "duration": "4:00"
+}</pre>
+        </div>
+
+        <h3>Delete a Song</h3>
+        <p><span class="method">DELETE</span> <code>/songs</code></p>
+        <div class="request">
+            <p>Request Body (required field: id):</p>
+            <pre>{
+    "id": 1
+}</pre>
+        </div>
+    </div>
+</body>
+
+</html>
